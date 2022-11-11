@@ -9,19 +9,21 @@
 /* Begin PBXBuildFile section */
 		999B152F291EC1D30064F649 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B152E291EC1D30064F649 /* AppDelegate.swift */; };
 		999B1531291EC1D30064F649 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1530291EC1D30064F649 /* SceneDelegate.swift */; };
-		999B1533291EC1D30064F649 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1532291EC1D30064F649 /* CharacterViewController.swift */; };
+		999B1533291EC1D30064F649 /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1532291EC1D30064F649 /* CharacterTableViewController.swift */; };
 		999B1538291EC1D60064F649 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 999B1537291EC1D60064F649 /* Assets.xcassets */; };
 		999B153B291EC1D60064F649 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999B1539291EC1D60064F649 /* LaunchScreen.storyboard */; };
+		999B154A291EC3DB0064F649 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1549291EC3DB0064F649 /* CharacterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		999B152B291EC1D30064F649 /* mobileDivTestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileDivTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		999B152E291EC1D30064F649 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		999B1530291EC1D30064F649 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		999B1532291EC1D30064F649 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
+		999B1532291EC1D30064F649 /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		999B1537291EC1D60064F649 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		999B153A291EC1D60064F649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		999B153C291EC1D60064F649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		999B1549291EC3DB0064F649 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +110,8 @@
 		999B1547291EC29C0064F649 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				999B1532291EC1D30064F649 /* CharacterViewController.swift */,
+				999B154B291EC3DC0064F649 /* Cell */,
+				999B1532291EC1D30064F649 /* CharacterTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +121,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		999B154B291EC3DC0064F649 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				999B1549291EC3DB0064F649 /* CharacterTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +201,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				999B1533291EC1D30064F649 /* CharacterViewController.swift in Sources */,
+				999B1533291EC1D30064F649 /* CharacterTableViewController.swift in Sources */,
 				999B152F291EC1D30064F649 /* AppDelegate.swift in Sources */,
 				999B1531291EC1D30064F649 /* SceneDelegate.swift in Sources */,
+				999B154A291EC3DB0064F649 /* CharacterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

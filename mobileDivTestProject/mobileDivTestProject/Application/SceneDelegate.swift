@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let controller = CharacterViewController()
+        let controller = CharacterTableViewController()
         let navController = UINavigationController(rootViewController: controller)
         
         window = UIWindow(windowScene: windowScene)
