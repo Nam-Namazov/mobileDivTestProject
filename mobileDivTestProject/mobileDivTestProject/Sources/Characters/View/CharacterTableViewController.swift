@@ -9,10 +9,25 @@ import UIKit
 
 final class CharacterTableViewController: UITableViewController {
     
+    private var imageUrls = [Characters]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureTableView()
+        
+        NetworkManager.shared.getData { result in
+            switch result {
+            case .success(let data):
+                self.imageUrls = data
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                
+            case .failure(let error):
+                print("error is \(error)")
+            }
+        }
     }
     
     private func configureUI() {
@@ -27,6 +42,7 @@ final class CharacterTableViewController: UITableViewController {
             forCellReuseIdentifier: CharacterTableViewCell.identifier
         )
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
     }
 }
 
@@ -34,19 +50,19 @@ final class CharacterTableViewController: UITableViewController {
 extension CharacterTableViewController {
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return imageUrls.count
     }
     
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension CharacterTableViewController {
-    override func tableView(_ tableView: UITableView,
-                            didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: CharacterTableViewCell.identifier,
+            for: indexPath) as? CharacterTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.configure(characterImage: imageUrls[indexPath.row].image, characterName: imageUrls[indexPath.row].name, characterGender: imageUrls[indexPath.row].species + ", " + imageUrls[indexPath.row].gender, locationTitle: imageUrls[indexPath.row].location.name, lifeStatus: imageUrls[indexPath.row].status)
+        
+        return cell
     }
 }
