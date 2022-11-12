@@ -5,7 +5,7 @@
 - Архитектура MVP
 - Kingfisher
 - Singleton pattern
-- Infinity Scroll 
+- Infinite Scroll 
 - UITableView
 - Работа с rickAndMorty API
 - GET запрос с помощью URLSession
