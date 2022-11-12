@@ -21,9 +21,14 @@
 		999B155D291F08630064F649 /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B155C291F08630064F649 /* ImageProcessing.swift */; };
 		999B155F291F0BA10064F649 /* UIImage+Sizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B155E291F0BA10064F649 /* UIImage+Sizing.swift */; };
 		999B1561291F0BF10064F649 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1560291F0BF10064F649 /* Images.swift */; };
-		999B1563291F0EC70064F649 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1562291F0EC70064F649 /* CharacterModel.swift */; };
+		999B1563291F0EC70064F649 /* CharactersResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1562291F0EC70064F649 /* CharactersResult.swift */; };
 		999B1566291F13720064F649 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1565291F13720064F649 /* NetworkManager.swift */; };
-		999B1568291F13880064F649 /* CharacterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1567291F13880064F649 /* CharacterPresenter.swift */; };
+		999B1568291F13880064F649 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1567291F13880064F649 /* CharactersPresenter.swift */; };
+		999B156C291FB7280064F649 /* RickMortyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B156B291FB7280064F649 /* RickMortyCharacter.swift */; };
+		999B156E291FB7340064F649 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B156D291FB7340064F649 /* Location.swift */; };
+		999B1570291FBF8A0064F649 /* AliveStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B156F291FBF8A0064F649 /* AliveStatus.swift */; };
+		999B1572291FC3360064F649 /* CharacterTableViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1571291FC3360064F649 /* CharacterTableViewInput.swift */; };
+		999B1574291FC33C0064F649 /* CharacterTableViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999B1573291FC33C0064F649 /* CharacterTableViewOutput.swift */; };
 		A967FF5BE02D34897CE311F3 /* Pods_mobileDivTestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447E199DB9EEDC1FE2AE6DC7 /* Pods_mobileDivTestProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,9 +50,14 @@
 		999B155C291F08630064F649 /* ImageProcessing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessing.swift; sourceTree = "<group>"; };
 		999B155E291F0BA10064F649 /* UIImage+Sizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Sizing.swift"; sourceTree = "<group>"; };
 		999B1560291F0BF10064F649 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		999B1562291F0EC70064F649 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		999B1562291F0EC70064F649 /* CharactersResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersResult.swift; sourceTree = "<group>"; };
 		999B1565291F13720064F649 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		999B1567291F13880064F649 /* CharacterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPresenter.swift; sourceTree = "<group>"; };
+		999B1567291F13880064F649 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
+		999B156B291FB7280064F649 /* RickMortyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickMortyCharacter.swift; sourceTree = "<group>"; };
+		999B156D291FB7340064F649 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		999B156F291FBF8A0064F649 /* AliveStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliveStatus.swift; sourceTree = "<group>"; };
+		999B1571291FC3360064F649 /* CharacterTableViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewInput.swift; sourceTree = "<group>"; };
+		999B1573291FC33C0064F649 /* CharacterTableViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewOutput.swift; sourceTree = "<group>"; };
 		BE935856A402B5817966FDBA /* Pods-mobileDivTestProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileDivTestProject.debug.xcconfig"; path = "Target Support Files/Pods-mobileDivTestProject/Pods-mobileDivTestProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D3D935229A499B9C9490E558 /* Pods-mobileDivTestProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileDivTestProject.release.xcconfig"; path = "Target Support Files/Pods-mobileDivTestProject/Pods-mobileDivTestProject.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,7 +153,7 @@
 		999B1546291EC2980064F649 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				999B1567291F13880064F649 /* CharacterPresenter.swift */,
+				999B1567291F13880064F649 /* CharactersPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -153,6 +163,8 @@
 			children = (
 				999B154B291EC3DC0064F649 /* Cell */,
 				999B1532291EC1D30064F649 /* CharacterTableViewController.swift */,
+				999B1571291FC3360064F649 /* CharacterTableViewInput.swift */,
+				999B1573291FC33C0064F649 /* CharacterTableViewOutput.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,7 +172,9 @@
 		999B1548291EC29F0064F649 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				999B1562291F0EC70064F649 /* CharacterModel.swift */,
+				999B1562291F0EC70064F649 /* CharactersResult.swift */,
+				999B156B291FB7280064F649 /* RickMortyCharacter.swift */,
+				999B156D291FB7340064F649 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +185,7 @@
 				999B1549291EC3DB0064F649 /* CharacterTableViewCell.swift */,
 				999B154C291EC6630064F649 /* CharacterTableViewCellView.swift */,
 				999B1555291ED1660064F649 /* TagLabel.swift */,
+				999B156F291FBF8A0064F649 /* AliveStatus.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -329,15 +344,20 @@
 				999B1533291EC1D30064F649 /* CharacterTableViewController.swift in Sources */,
 				999B1561291F0BF10064F649 /* Images.swift in Sources */,
 				999B1554291ECDBF0064F649 /* UIColor.swift in Sources */,
+				999B156E291FB7340064F649 /* Location.swift in Sources */,
 				999B152F291EC1D30064F649 /* AppDelegate.swift in Sources */,
 				999B155B291F081D0064F649 /* GrayscaleFilter.swift in Sources */,
+				999B156C291FB7280064F649 /* RickMortyCharacter.swift in Sources */,
 				999B1531291EC1D30064F649 /* SceneDelegate.swift in Sources */,
-				999B1563291F0EC70064F649 /* CharacterModel.swift in Sources */,
+				999B1563291F0EC70064F649 /* CharactersResult.swift in Sources */,
+				999B1570291FBF8A0064F649 /* AliveStatus.swift in Sources */,
 				999B154D291EC6630064F649 /* CharacterTableViewCellView.swift in Sources */,
 				999B1556291ED1660064F649 /* TagLabel.swift in Sources */,
-				999B1568291F13880064F649 /* CharacterPresenter.swift in Sources */,
+				999B1568291F13880064F649 /* CharactersPresenter.swift in Sources */,
 				999B155F291F0BA10064F649 /* UIImage+Sizing.swift in Sources */,
+				999B1574291FC33C0064F649 /* CharacterTableViewOutput.swift in Sources */,
 				999B1566291F13720064F649 /* NetworkManager.swift in Sources */,
+				999B1572291FC3360064F649 /* CharacterTableViewInput.swift in Sources */,
 				999B155D291F08630064F649 /* ImageProcessing.swift in Sources */,
 				999B1550291EC9440064F649 /* UILabel.swift in Sources */,
 				999B154A291EC3DB0064F649 /* CharacterTableViewCell.swift in Sources */,

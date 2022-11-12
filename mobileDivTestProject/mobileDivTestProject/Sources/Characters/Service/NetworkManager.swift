@@ -6,15 +6,17 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class NetworkManager {
+    
     static let shared = NetworkManager()
     
-    private let urlString = "https://rickandmortyapi.com/api/character"
+    private let urlString = "https://rickandmortyapi.com/api/character?page="
     
-    func getData(completion: @escaping (Result<[Characters], Error>) -> Void) {
-        guard let url = URL(string: urlString) else { return }
+    private init() {}
+    
+    func getCharacters(page: Int, completion: @escaping (Result<[RickMortyCharacter], Error>) -> Void) {
+        guard let url = URL(string: urlString + "\(page)") else { return }
         
         let dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
@@ -23,19 +25,20 @@ final class NetworkManager {
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
-                  (200..<300).contains(httpResponse.statusCode) else {
-                return
-            }
-            
-            guard let data = data else {
+                  (200..<300).contains(httpResponse.statusCode),
+                  let data = data else {
                 return
             }
             
             do {
-                let characterModel = try JSONDecoder().decode(CharacterModel.self, from: data)
-                completion(.success(characterModel.results))
+                let characterModel = try JSONDecoder().decode(CharactersResult.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(characterModel.results))
+                }
             } catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }
         dataTask.resume()

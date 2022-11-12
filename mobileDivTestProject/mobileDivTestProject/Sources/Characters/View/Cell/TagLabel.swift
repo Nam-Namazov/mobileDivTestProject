@@ -7,40 +7,23 @@
 
 import UIKit
 
-enum LifeStatus: String {
-    case alive = "Alive"
-    case dead = "Dead"
-    case unknown = "Unknown"
-    
-    init(_ status: String) {
-        switch status {
-        case "Alive":
-            self = .alive
-        case "Dead":
-            self = .dead
-        default:
-            self = .unknown
-        }
-    }
-}
-
 final class TagLabel: UILabel {
     
-    var status = LifeStatus.unknown {
+    var status = AliveStatus.unknown {
         didSet {
             switch status {
             case .alive:
-                backgroundColor = UIColor.Theme.lightGreen
-                textColor = UIColor.Theme.green
-                text = "ALIVE"
+                configureTagLabel(backgroundColor: UIColor.Theme.lightGreen,
+                                  textColor: UIColor.Theme.green,
+                                  text: "ALIVE")
             case .dead:
-                backgroundColor = UIColor.Theme.lightRed
-                textColor = UIColor.Theme.red
-                text = "DEAD"
+                configureTagLabel(backgroundColor: UIColor.Theme.lightRed,
+                                  textColor: UIColor.Theme.red,
+                                  text: "DEAD")
             case .unknown:
-                backgroundColor = UIColor.Theme.lightGray
-                textColor = UIColor.Theme.gray
-                text = "UNKNOWN"
+                configureTagLabel(backgroundColor: UIColor.Theme.lightGray,
+                                  textColor: UIColor.Theme.gray,
+                                  text: "UNKNOWN")
             }
         }
     }
@@ -70,18 +53,14 @@ final class TagLabel: UILabel {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = UIColor.Theme.lightGreen
-        textColor = UIColor.Theme.green
-        text = "ALIVE"
+    private func configureTagLabel(backgroundColor: UIColor,
+                                   textColor: UIColor,
+                                   text: String) {
         font = UIFont.boldSystemFont(ofSize: 14)
         layer.cornerRadius = 12
         layer.masksToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.text = text
     }
 }

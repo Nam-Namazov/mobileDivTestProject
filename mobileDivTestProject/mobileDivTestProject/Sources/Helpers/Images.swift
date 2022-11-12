@@ -9,5 +9,5 @@ import UIKit
 
 extension UIImage {
     static let play = UIImage(systemName: "play.fill")!
-    static let location = UIImage(named: "placeholder")!
+    static let location = UIImage(named: "location")!
 }

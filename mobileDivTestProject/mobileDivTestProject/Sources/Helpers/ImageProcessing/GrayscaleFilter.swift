@@ -16,8 +16,7 @@ final class GrayscaleFilter: ImageProcessor {
         self.isGrayscale = isGrayscale
     }
 
-    func process(item: ImageProcessItem,
-                 options: KingfisherParsedOptionsInfo) -> KFCrossPlatformImage? {
+    func process(item: ImageProcessItem, options: KingfisherParsedOptionsInfo) -> KFCrossPlatformImage? {
         switch item {
         case .image(let image):
             return isGrayscale ? ImageProcessing.makeGrayscaleImage(image) : image

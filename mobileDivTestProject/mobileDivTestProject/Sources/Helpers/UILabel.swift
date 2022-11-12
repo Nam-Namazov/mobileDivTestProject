@@ -14,7 +14,5 @@ extension UILabel {
         self.init(frame: .zero)
         font = isBold ? .boldSystemFont(ofSize: size) : .systemFont(ofSize: size)
         self.textColor = textColor
-        text = "Rick Sanchez"
-        translatesAutoresizingMaskIntoConstraints = false
     }
 }

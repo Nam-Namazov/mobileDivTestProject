@@ -9,28 +9,18 @@ import UIKit
 
 final class CharacterTableViewController: UITableViewController {
     
-    private var imageUrls = [Characters]()
+    private let activityIndicator = UIActivityIndicatorView(style: .medium)
+    private lazy var presenter = CharactersPresenter(view: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureTableView()
-        
-        NetworkManager.shared.getData { result in
-            switch result {
-            case .success(let data):
-                self.imageUrls = data
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                
-            case .failure(let error):
-                print("error is \(error)")
-            }
-        }
+        presenter.viewDidLoad()
     }
     
     private func configureUI() {
+        activityIndicator.hidesWhenStopped = true
         view.backgroundColor = .white
         title = "Characters"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -48,21 +38,56 @@ final class CharacterTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 extension CharacterTableViewController {
-    override func tableView(_ tableView: UITableView,
-                            numberOfRowsInSection section: Int) -> Int {
-        return imageUrls.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfRows()
     }
     
-    override func tableView(_ tableView: UITableView,
-                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: CharacterTableViewCell.identifier,
             for: indexPath) as? CharacterTableViewCell else {
             return UITableViewCell()
         }
         
-        cell.configure(characterImage: imageUrls[indexPath.row].image, characterName: imageUrls[indexPath.row].name, characterGender: imageUrls[indexPath.row].species + ", " + imageUrls[indexPath.row].gender, locationTitle: imageUrls[indexPath.row].location.name, lifeStatus: imageUrls[indexPath.row].status)
+        let character = presenter.cellModelForRow(at: indexPath.row)
+        
+        cell.configure(characterImage: character.image,
+                       name: character.name,
+                       species: character.species + ", " + character.gender,
+                       location: character.location.name,
+                       aliveStatus: character.status)
+        cell.onWatchEpisode = { [weak self] in
+            self?.presenter.watchEpisodePressed(at: indexPath.row)
+        }
         
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension CharacterTableViewController {
+    override func tableView(_ tableView: UITableView,
+                            willDisplay cell: UITableViewCell,
+                            forRowAt indexPath: IndexPath) {
+        if indexPath.row == presenter.numberOfRows() - 1 {
+            presenter.scrolledToTheEnd()
+        }
+    }
+}
+
+// MARK: - CharacterTableViewInput
+extension CharacterTableViewController: CharacterTableViewInput {
+    func showLoading() {
+        navigationItem.titleView = activityIndicator
+        activityIndicator.startAnimating()
+    }
+    
+    func hideLoading() {
+        navigationItem.titleView = nil
+        activityIndicator.stopAnimating()
+    }
+    
+    func reloadTableView() {
+        tableView.reloadData()
     }
 }
